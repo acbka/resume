@@ -1,9 +1,8 @@
-$red: #962d6a;
+$red: #87285e;
 $creamy: #ff00ff;
 $grey: #e0e0e0;
 html{
    font-size: 20px;
-   font-family: roboto;
 }
 body{
    margin: 0;
@@ -31,7 +30,7 @@ a{
    text-decoration: none;
 }
 a:hover{
-   text-decoration: underline;    
+   text-decoration: underline;
 }
 header{
    grid-area: main;
@@ -52,6 +51,7 @@ header{
    padding-right: 10px;
    
 }
+/*
 .left-side{
    grid-area: left-side;
    display: grid;
@@ -61,6 +61,7 @@ header{
    display: grid;
    align-items: top;
 }
+*/
 .subtitle{
    font-size: 1.5rem;
    letter-spacing: 2px;
@@ -136,12 +137,9 @@ li:before{
    background: $red;
    z-index: 2;
 }
-.italic{
-   font-style: italic;
-}
 .site{
    justify-self: center;
-   padding: 30px 10px 0 10px;
+   padding-top: 30px;
 }
 footer{
    grid-area: footer;
@@ -176,7 +174,7 @@ footer{
       flex-direction: column;
       padding-bottom: 20px;
    }
-    footer{
+   footer{
       flex-direction: column;
    }
    .contacts{
