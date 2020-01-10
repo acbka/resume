@@ -8,19 +8,22 @@ html{
 body{
    margin: 0;
    padding: 0;
+
+}
+.grid-container{
    display: grid;
    grid-template-areas: 
    "main main"
    "left-side right-side"
    "footer footer";
-   grid-template-columns:3fr 5fr;
+   grid-template-columns: 1fr 1.6fr;
    align-items: top;
 }
 h1{
    color: #FFF;
    font-size: 3rem;
    letter-spacing: 5px;
-   margin-bottom: 20px;
+   margin: 0 0 20px;
 }
 h3{
    font-size: 1.3rem;
@@ -35,45 +38,56 @@ a:hover{
 }
 header{
    grid-area: main;
-   display: flex;
+   display: grid;
+   grid-template-columns: 1fr 250px;
    align-items: center;
+   justify-content: space-around;
    background: $red;
    color: #fff;
+   padding: 40px;
+   min-width: 0!important;
 }
 .name{
-   flex: 3;
    text-align: center;
 }
 .contacts{
-   flex:1;
-   padding-right: 40px;
+   display: inline-block;
+   margin-left: auto;
+   text-align: right;
+}
+.address{
+   display: block;
+   text-align: left;
 }
 .social{
    padding-right: 10px;
-   
 }
 .left-side{
    grid-area: left-side;
-   display: grid;
+   margin-left: 30px;
 }
 .right-side{
+   padding-right: 20px;
    grid-area: right-side;
+   margin-left: 20px;
+}
+.left-side,
+.right-side{
    display: grid;
-   align-items: top;
+   border-left: 2px solid $grey;
 }
 .subtitle{
    font-size: 1.5rem;
    letter-spacing: 2px;
    text-align: center;
-   margin-top: 10px;
+   margin: 10px 0 0 0;
 }
 .address{
    padding: 5px 0;;
 }
 .container{
-   border-left: 2px solid $grey;
-   padding: 15px 20px;
-   margin: 0 20px;
+   padding: 15px 20px 15px 0;
+   margin-left: 20px;
 }
 .box{
    position: relative;
@@ -97,23 +111,19 @@ header{
 }
 .box:after{
    content: '';
-    display: inline-block;
-    position: absolute;
-    background-color: $red;
-    border-radius: 10px;
-    width: 38px;
-    height: 2px;
-    top: 20px;
-    left: -38px;
-    z-index: 1;
+   display: inline-block;
+   position: absolute;
+   background-color: $red;
+   border-radius: 10px;
+   width: 38px;
+   height: 2px;
+   top: 20px;
+   left: -38px;
+   z-index: 1;
 }
 .block{
    display: grid;
    grid-template-columns: 2fr 3fr;
-}
-.wrap{
-   display: grid;
-   grid-template-columns: repeat(5, 1fr);
 }
 li{
    list-style: none;
@@ -139,32 +149,59 @@ li:before{
 .italic{
    font-style: italic;
 }
-.site{
-   justify-self: center;
-   padding: 30px 10px 0 10px;
+.wrap{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+   grid-template-rows: auto;
+   justify-content: space-between;
+   grid-gap: 20px;
+}
+.site-img{
+   max-width: 100%;
+   height: auto;
 }
 footer{
    grid-area: footer;
-   display: flex;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
    align-items: center;
    justify-content: space-around;
+   text-align: center;
    color: #FFF;
-   padding: 40px;
+   line-height: 1.7rem;
+   padding: 40px 60px;
    background: $red;
 }
+.footer-name{
+   text-align: right;
+}
 @media screen and (max-width: 950px){
-   body{
-      grid-template-columns: 1fr 2fr;
-   }
-   .block{
-      grid-template-columns: 1fr 1fr;
+   .grid-container{
+      grid-template-columns: 1fr 1.3fr;
    }
    .wrap{
       grid-template-columns: repeat(2, 1fr);
    }
+   header{
+      grid-template-columns: 1fr;
+   }
+   .contacts{
+      padding: 20px 0;
+      margin: 0 auto;
+      text-align: center;
+   }
+   .address{
+      text-align: center;
+   }
+   .container{
+      padding-right: 0;
+   }
+   .footer-name{
+      text-align: center;
+   }
 }
-@media screen and (max-width: 425px){
-   body{
+@media screen and (max-width: 650px){
+   .grid-container{
       grid-template-areas: 
       "main"
       "left-side"
@@ -173,13 +210,37 @@ footer{
       grid-template-columns: 1fr;
    }
    header{
-      flex-direction: column;
       padding-bottom: 20px;
    }
-    footer{
-      flex-direction: column;
+   footer{
+      grid-template-columns: 1fr;
    }
    .contacts{
       text-align: center;
+      padding-right: 0;
+   }
+   .block{
+      grid-template-columns: 1fr;
+   }
+   .left-side{
+      margin-left: 20px;
+      padding-right: 20px;
+      padding-left: 0;
+   }
+}
+@media screen and (max-width: 400px){
+   html{
+      font-size: 18px;
+   }
+   .container{
+      margin-right: 0;
+   }
+   .wrap{
+      grid-template-columns: 1fr;
+   }
+}
+@media screen and (max-width: 320px){
+   .grid-container{
+      grid-template-columns: minmax(auto, 320px);
    }
 }
