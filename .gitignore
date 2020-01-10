@@ -1,5 +1,5 @@
 node_modules
 dist
-Vlada Brusylo CV.pdf
+*.pdf
 Sertificate.png
-
+package-lock.json
