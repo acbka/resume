@@ -160,6 +160,9 @@ li:before{
    max-width: 100%;
    height: auto;
 }
+a.black{
+   color: #000;
+}
 footer{
    grid-area: footer;
    display: grid;
@@ -221,6 +224,7 @@ footer{
    }
    .block{
       grid-template-columns: 1fr;
+      justify-items: center;
    }
    .left-side{
       margin-left: 20px;
